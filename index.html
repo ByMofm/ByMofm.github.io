@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Las Alpinas – Cabañas en Miramar</title>
+    <!-- Google Fonts para tipografía -->
+    <!-- Se importan Poppins para títulos y Open Sans para el cuerpo del texto, recomendadas por guías de diseño que sugieren usar tipografías modernas y legibles en sitios de turismo【797201649336767†L251-L275】. -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Iconos de FontAwesome -->
+    <!-- Cargamos Font Awesome sin atributos de integridad para asegurar compatibilidad en entornos locales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --color-primario: #006466;
+            --color-secundario: #1B9AAA;
+            --color-acento: #FFC857;
+            --color-fondo: #fdfdfd;
+            --color-texto: #2c3e50;
+        }
+        body {
+            margin: 0;
+            /* Open Sans se utiliza como tipografía base por su legibilidad en textos largos【797201649336767†L251-L275】 */
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--color-texto);
+            background-color: var(--color-fondo);
+        }
+
+        /* Se asigna Poppins a los títulos y subtítulos para un aspecto moderno y destacado */
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+        }
+        /* Hero */
+        .hero {
+            position: relative;
+            background-image: url('cabaña6.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 100, 102, 0.6);
+        }
+        .hero-content {
+            position: relative;
+            text-align: center;
+            padding: 0 1rem;
+        }
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+        .hero .btn-whatsapp {
+            display: inline-block;
+            background: var(--color-acento);
+            color: var(--color-primario);
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        .hero .btn-whatsapp i {
+            margin-right: 0.5rem;
+        }
+        .hero .btn-whatsapp:hover {
+            background: #e6b44b;
+        }
+        /* Secciones */
+        section {
+            padding: 4rem 1rem 3rem;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: var(--color-primario);
+        }
+        /* Comodidades */
+        #amenities {
+            background-color: #fafafa;
+        }
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .amenity {
+            background: #fff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            /* Sombras más pronunciadas para llamar la atención */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s ease;
+        }
+        .amenity:hover {
+            transform: translateY(-5px);
+        }
+        .amenity i {
+            font-size: 2.5rem;
+            color: var(--color-primario);
+            margin-bottom: 0.5rem;
+        }
+        /* Galería */
+        #gallery {
+            background-color: var(--color-fondo);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .gallery-grid img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        /* Pequeño zoom al pasar el mouse para indicar interactividad */
+        .gallery-grid img:hover {
+            transform: scale(1.05);
+            z-index: 2;
+        }
+        /* Ubicación */
+        #location {
+            background-color: #fafafa;
+        }
+        .map-container {
+            max-width: 1100px;
+            margin: 1.5rem auto 0 auto;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 350px;
+            border: 0;
+        }
+        /* Redes y plataformas */
+        #social {
+            background-color: var(--color-primario);
+            color: #fff;
+            text-align: center;
+        }
+        #social p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            font-size: 2rem;
+        }
+        /* Iconos sin enlace */
+        .social-icons span {
+            color: var(--color-acento);
+            transition: color 0.3s ease;
+        }
+        .social-icons span:hover {
+            color: #e6b44b;
+        }
+
+        /* Lightbox (imagen ampliada) */
+        #lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        /* Pie de página */
+        footer {
+            background: #014f56;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+        footer a {
+            color: var(--color-acento);
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: none;
+        }
+        @media (max-width: 600px) {
+            .hero-content h1 {
+                font-size: 2.3rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .amenity i {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero principal -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Las Alpinas</h1>
+            <!-- Frase gancho inspirada en ideas de eslóganes para alquiler vacacional【24945367000990†L16-L26】. -->
+            <p>Escapá a tu refugio ideal a pasos del mar</p>
+            <a href="https://wa.me/5492291410364" class="btn-whatsapp" target="_blank" rel="noopener">
+                <i class="fab fa-whatsapp"></i> Reservar por WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <!-- Comodidades -->
+    <section id="amenities">
+        <h2>Comodidades</h2>
+        <div class="amenities-grid">
+            <div class="amenity">
+                <i class="fas fa-car"></i>
+                <h3>Cochera con parrilla</h3>
+                <p>Amplio espacio para estacionar tu vehículo junto a una parrilla cubierta para disfrutar de un asado.</p>
+            </div>
+            <div class="amenity">
+                <i class="fas fa-swimming-pool"></i>
+                <h3>Pileta climatizada</h3>
+                <p>Piscina al aire libre climatizada, ideal para relajarte en cualquier época del año.</p>
+            </div>
+            <div class="amenity">
+                <i class="fas fa-snowflake"></i>
+                <h3>Equipamiento</h3>
+                <p>Aire acondicionado y televisor con cable para tu entretenimiento y comodidad.</p>
+            </div>
+            <div class="amenity">
+                <i class="fas fa-utensils"></i>
+                <h3>Comodidades</h3>
+                <p>Capacidad para 4 personas con cocina completa con microondas y todos los utensilios necesarios.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section id="gallery">
+        <h2>Galería</h2>
+        <div class="gallery-grid">
+            <img src="cabaña6.jpg" alt="Pileta climatizada" onclick="showLightbox(this.src)">
+            <img src="cabaña9.jpg" alt="Habitación principal" onclick="showLightbox(this.src)">
+            <img src="cabaña8.jpg" alt="Sala de estar" onclick="showLightbox(this.src)">
+            <img src="cabaña7.jpg" alt="Cocina equipada" onclick="showLightbox(this.src)">
+            <img src="cabaña3.jpg" alt="Baño completo" onclick="showLightbox(this.src)">
+            <img src="cabaña2.jpg" alt="Comedor con sofá" onclick="showLightbox(this.src)">
+        </div>
+    </section>
+
+    <!-- Lightbox para ampliar imágenes de la galería -->
+    <div id="lightbox" onclick="hideLightbox()">
+        <!-- El clic sobre la imagen ampliada no cerrará el lightbox -->
+        <img id="lightbox-img" src="" alt="Imagen ampliada" onclick="event.stopPropagation()">
+    </div>
+
+    <!-- Ubicación -->
+    <section id="location">
+        <h2>Ubicación</h2>
+        <p style="text-align:center; max-width: 700px; margin:0 auto;">Encontranos en la siguiente ubicación</p>
+        <div class="map-container">
+            <iframe
+                src="https://maps.google.com/maps?q=-38.28356855047256,-57.83659857421924&z=16&output=embed"
+                allowfullscreen=""
+                loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Redes y plataformas -->
+    <section id="social">
+        <h2>Redes y plataformas</h2>
+        <p>Seguinos en nuestras redes y plataformas favoritas para ver más fotos, promociones y novedades.</p>
+        <div class="social-icons">
+            <span title="Instagram"><i class="fab fa-instagram"></i></span>
+            <span title="TikTok"><i class="fab fa-tiktok"></i></span>
+            <span title="Booking.com"><i class="fas fa-bed"></i></span>
+            <span title="YouTube"><i class="fab fa-youtube"></i></span>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        © 2025 Las Alpinas. Todos los derechos reservados. | by <a href="https://github.com/ByMofm" target="_blank" rel="noopener">MOFM</a>
+    </footer>
+
+    <!-- Script para mostrar/ocultar lightbox de la galería -->
+    <script>
+        function showLightbox(src) {
+            var lightbox = document.getElementById('lightbox');
+            var img = document.getElementById('lightbox-img');
+            img.src = src;
+            lightbox.style.display = 'flex';
+        }
+        function hideLightbox() {
+            var lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
